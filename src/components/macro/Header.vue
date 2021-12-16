@@ -15,7 +15,7 @@ export default {
 <style lang="scss" scoped>
 
 header {
-    height: 80px;
+    height: 5vh;
     background: #2e3a46;
     
     .container {
@@ -26,7 +26,7 @@ header {
         align-items: center;
 
         img {
-            width: 50px;
+            width: 35px;
         }
     }
 }

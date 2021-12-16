@@ -37,14 +37,12 @@ import Card from '../commons/Card.vue';
 <style lang="scss" scoped>
   .container {
     width: 60%;
-    height: 100%;
     margin: auto;
-    margin-top: 30px;
 
     .card-container {
-      height: 100%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-around;
     }
   }
 </style>

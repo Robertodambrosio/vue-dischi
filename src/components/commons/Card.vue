@@ -18,15 +18,15 @@ props: {
 
 <style lang="scss" scoped>
     .card-song {
-        width: calc(20% - 20px);
-        min-height: 250px;
-        margin: 10px;
+        max-width: calc(20% - 20px);
+        min-height: 350px;
+        margin-bottom: 20px;
         text-align: center;
         background-color: #2e3a46; 
-        padding: 10px; 
+        padding: 15px; 
         
         img{
-            width: 125px;
+            width: 100%;
             margin-bottom: 10px;
         }
 
