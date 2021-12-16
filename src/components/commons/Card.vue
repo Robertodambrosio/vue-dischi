@@ -27,12 +27,12 @@ props: {
         
         img{
             width: 100%;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         h4 {
             color: white;
-            margin-bottom: 10px;
+            margin-bottom: 30px;
             text-transform: uppercase;
         }
 
