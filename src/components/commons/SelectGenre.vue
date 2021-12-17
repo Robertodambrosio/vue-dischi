@@ -1,6 +1,7 @@
 <template>
  <div class="container-input">
-    <select v-model="selectVal" name= "Select Genre" id="" @change="$emit('change', selectVal)" >
+    <select v-model="selectVal" name= "Select Genre" id="" @change="$emit('change', selectVal)">
+        <option></option>
         <option>Rock</option>
         <option>Pop</option>
         <option>Metal</option>

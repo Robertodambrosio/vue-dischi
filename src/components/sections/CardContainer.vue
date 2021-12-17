@@ -20,7 +20,7 @@
     },
     data() {
       return {
-        card: null,
+        card: [],
         selectVal: ''
       }
     },
@@ -40,12 +40,9 @@
     },
     computed: {
       filtered() {
-        if (this.selectVal !== '')
           return this.card.filter((elm) => {
             return elm.genre.includes(this.selectVal);
           });
-        else 
-          return this.card
       }
     }
   }
