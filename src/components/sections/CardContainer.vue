@@ -44,8 +44,8 @@
           return this.card.filter((elm) => {
             return elm.genre.includes(this.selectVal);
           });
-        else
-          return this.card;
+        else 
+          return this.card
       }
     }
   }
