@@ -1,6 +1,7 @@
 <template>
  <div>
     <select v-model="selectVal" name= "" id="" @change="$emit('change', selectVal)">
+        <option></option>
         <option>Rock</option>
         <option>Pop</option>
         <option>Metal</option>

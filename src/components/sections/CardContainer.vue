@@ -1,52 +1,54 @@
 <template>
   <div class="container">
-    <SelectGenre  @change="searchGenres"/>
+    <SelectGenre @change="searchGenres" />
     <div class="card-container">
-      <Card v-for="(song, i) in filtered" :key="i" :card="song"/>
-  </div>
+      <Card v-for="(song, i) in filtered" :key="i" :card="song" />
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Card from '../commons/Card.vue';
-import SelectGenre from '../commons/SelectGenre.vue';
+  import axios from 'axios';
+  import Card from '../commons/Card.vue';
+  import SelectGenre from '../commons/SelectGenre.vue';
 
   export default {
     name: "CardContainer",
     components: {
-        Card,
-        SelectGenre
+      Card,
+      SelectGenre
     },
     data() {
-        return {
-            card: null,
-            selectVal: ''
-        }
+      return {
+        card: null,
+        selectVal: ''
+      }
     },
     created() {
-        axios.get('https://flynn.boolean.careers/exercises/api/array/music')
+      axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
-            this.card = response.data.response;
+          this.card = response.data.response;
         })
         .catch(function (error) {
-            console.log(error);
+          console.log(error);
         });
     },
     methods: {
-        searchGenres(payload) {
-            this.selectVal = payload;
-        }
+      searchGenres(payload) {
+        this.selectVal = payload;
+      }
     },
-         computed: {
-         filtered() {
-           console.log(this)
-             return this.card.filter((elm) => {
-                 return elm.genre.toLowerCase().includes(this.selectVal.toLowerCase()); 
-             } );  
-         }
-     }
-  };
+    computed: {
+      filtered() {
+        if (this.selectVal !== '')
+          return this.card.filter((elm) => {
+            return elm.genre.includes(this.selectVal);
+          });
+        else
+          return this.card;
+      }
+    }
+  }
 </script>
 
 <style lang="scss" scoped>
