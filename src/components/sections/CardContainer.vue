@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+    <SelectGenre  @change="searchGenres"/>
     <div class="card-container">
-      <Card v-for="(song, i) in card" :key="i" :card="song"/>
+      <Card v-for="(song, i) in filtered" :key="i" :card="song"/>
   </div>
   </div>
 </template>
@@ -9,28 +10,42 @@
 <script>
 import axios from 'axios';
 import Card from '../commons/Card.vue';
+import SelectGenre from '../commons/SelectGenre.vue';
 
   export default {
     name: "CardContainer",
     components: {
-        Card
+        Card,
+        SelectGenre
     },
     data() {
         return {
-            card: null
+            card: null,
+            selectVal: ''
         }
     },
     created() {
         axios.get('https://flynn.boolean.careers/exercises/api/array/music')
         .then((response) => {
-            // handle success
             this.card = response.data.response;
         })
         .catch(function (error) {
-            // handle error
             console.log(error);
         });
-    }
+    },
+    methods: {
+        searchGenres(payload) {
+            this.selectVal = payload;
+        }
+    },
+         computed: {
+         filtered() {
+           console.log(this)
+             return this.card.filter((elm) => {
+                 return elm.genre.toLowerCase().includes(this.selectVal.toLowerCase()); 
+             } );  
+         }
+     }
   };
 </script>
 
